@@ -1,4 +1,4 @@
-module example.com/go_echo_tutorial
+module go-echo-tutorial
 
 go 1.14
 
