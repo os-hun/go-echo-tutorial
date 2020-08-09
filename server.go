@@ -19,6 +19,7 @@ func main() {
 		return c.String(http.StatusOK, "Hello, World")
 	})
 	e.GET("/show", show)
+	e.POST("/save", save)
 	e.GET("/users/:id", getUser)
 	/*
 	e.POST("/users", saveUser)
@@ -45,4 +46,13 @@ func show(c echo.Context) error {
 	team := c.QueryParam("team")
 	member := c.QueryParam("member")
 	return c.String(http.StatusOK, "team:" + team + ", member:" + member)
+}
+
+// Form application/x-www-form-urlencoded
+// e.POST("/save", save)
+func save(c echo.Context) error {
+	// GET name and email
+	name := c.FormValue("name")
+	email := c.FormValue("email")
+	return c.String(http.StatusOK, "name:" + name + ", email:" + email)
 }
